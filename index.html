@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Viraj Kasabe – Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F6;--surface:#FFFFFF;--ink:#14213D;--muted:#55627C;--line:#CBD3E1;--accent:#2B4FE0;--accent-ink:#FFFFFF;
+  --bar1:#2B4FE0;--bar2:#E07A2B;--bar3:#1F9D7A;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1626;--surface:#172036;--ink:#E8EDF8;--muted:#9AA7C2;--line:#2A3858;--accent:#7C95FF;--accent-ink:#0F1626;
+  --bar1:#7C95FF;--bar2:#F29A55;--bar3:#4CC9A3;}}
+:root[data-theme="dark"]{
+  --bg:#0F1626;--surface:#172036;--ink:#E8EDF8;--muted:#9AA7C2;--line:#2A3858;--accent:#7C95FF;--accent-ink:#0F1626;
+  --bar1:#7C95FF;--bar2:#F29A55;--bar3:#4CC9A3;}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",system-ui,sans-serif;margin:0;letter-spacing:-.02em;line-height:1.05}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1.25rem}
+section{padding:4.5rem 0 0}
+h2{font-size:2rem;font-weight:800;margin-bottom:1.5rem}
+
+/* hero */
+.hero{padding-top:4rem}
+.hero h1{font-weight:800;font-size:clamp(3.25rem,13vw,8.5rem);letter-spacing:-.045em;line-height:.9}
+.hero .role{font:500 1.25rem/1.4 "Bricolage Grotesque",sans-serif;margin:1.5rem 0 .75rem}
+.hero p.sum{max-width:38rem;color:var(--muted);margin:0 0 1.75rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:.5rem;border:2px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:500}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* concurrent timeline */
+.lede{color:var(--muted);max-width:40rem;margin:-.75rem 0 1.5rem}
+.scroller{overflow-x:auto;padding-bottom:.5rem}
+.gantt{min-width:42rem;display:grid;grid-template-columns:repeat(11,1fr);gap:.5rem 0;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:1rem 1rem 1.25rem}
+.gantt .m{font-size:.8rem;color:var(--muted);border-left:1px solid var(--line);padding-left:.4rem}
+.bar{border-radius:.4rem;padding:.55rem .75rem;color:#fff;font-weight:500;font-size:.9rem;line-height:1.25}
+.bar small{display:block;font-weight:400;opacity:.92}
+.b1{background:var(--bar1);grid-column:1/8;grid-row:2;color:var(--accent-ink)}
+.b2{background:var(--bar2);grid-column:4/12;grid-row:3;color:#1b1206}
+.b3{background:var(--bar3);grid-column:5/12;grid-row:4;color:#04201a}
+.roles{display:grid;gap:1.25rem;margin-top:1.75rem}
+.role-item{border-left:4px solid var(--line);padding-left:1rem}
+.role-item.r1{border-color:var(--bar1)}.role-item.r2{border-color:var(--bar2)}.role-item.r3{border-color:var(--bar3)}
+.role-item h3{font-size:1.25rem;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.role-item .meta{color:var(--muted);font-size:.95rem;margin:.15rem 0 .5rem}
+.role-item ul{margin:0;padding-left:1.1rem}
+
+/* projects */
+.proj{border-top:1px solid var(--line)}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj a.row{display:grid;grid-template-columns:1fr 14rem;gap:.5rem 2rem;padding:1.5rem .25rem;text-decoration:none;color:inherit}
+.proj a.row:hover h3{color:var(--accent)}
+.proj h3{font-size:1.5rem;font-weight:800;transition:color .15s}
+.proj p{margin:.4rem 0 0;color:var(--muted)}
+.stack{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.35rem;align-content:flex-start}
+.stack li{font-size:.85rem;border:1px solid var(--line);background:var(--surface);border-radius:2rem;padding:.1rem .65rem}
+
+/* skills + edu */
+.skills{display:grid;grid-template-columns:8rem 1fr;gap:.6rem 1rem;margin:0}
+.skills dt{font-weight:500;color:var(--muted)}
+.skills dd{margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.two h3{font-size:1.15rem;font-weight:800;line-height:1.25}
+.two p{margin:.3rem 0 0;color:var(--muted)}
+.gpa{color:var(--ink);font-weight:500}
+
+footer{padding:5rem 0 3rem}
+footer .big{font:800 clamp(1.75rem,6vw,3.25rem)/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em}
+footer ul{list-style:none;padding:0;margin:1.5rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem 1.75rem}
+
+@media (max-width:640px){
+  .proj a.row{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr;gap:.1rem}
+  .skills dd{margin-bottom:.75rem}
+  .two{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<header class="hero">
+  <h1>Viraj Kasabe</h1>
+  <p class="role">Full stack developer building with React, Node.js, and MongoDB.</p>
+  <p class="sum">I’m a Computer Science graduate who builds MERN apps, teaches programming to students, and works across three roles at the same time. I like projects that run in real time and handle real payments.</p>
+  <div class="btns">
+    <a class="btn primary" href="mailto:kasabeviraj@gmail.com">Email me</a>
+    <a class="btn" href="https://github.com/virajkasabe" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/viraj-kasabe-59b24624a" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</header>
+
+<section id="experience" aria-labelledby="exp-h">
+  <h2 id="exp-h">Three roles, one stretch</h2>
+  <p class="lede">Since March 2026 I’ve been working on all three of these at once.</p>
+  <div class="scroller">
+    <div class="gantt" role="img" aria-label="Timeline from December 2025 to October 2026. Silicon Mount Tech December to June, Athenura March to present, Sree Sankaracharya Computer Centre April to present.">
+      <div class="m" style="grid-row:1">Dec</div><div class="m" style="grid-row:1">Jan</div><div class="m" style="grid-row:1">Feb</div><div class="m" style="grid-row:1">Mar</div><div class="m" style="grid-row:1">Apr</div><div class="m" style="grid-row:1">May</div><div class="m" style="grid-row:1">Jun</div><div class="m" style="grid-row:1">Jul</div><div class="m" style="grid-row:1">Aug</div><div class="m" style="grid-row:1">Sep</div><div class="m" style="grid-row:1">Oct</div>
+      <div class="bar b1">Silicon Mount Tech<small>Full Stack Developer Intern</small></div>
+      <div class="bar b2">Athenura<small>Full Stack Intern, MERN</small></div>
+      <div class="bar b3">Sree Sankaracharya Computer Centre<small>Trainer</small></div>
+    </div>
+  </div>
+
+  <div class="roles">
+    <article class="role-item r2">
+      <h3>Full Stack Development Intern (MERN) at Athenura</h3>
+      <div class="meta">Mar 2026 – Present · Remote</div>
+      <ul>
+        <li>Contribute to full-stack work with MongoDB, Express, React, and Node.js.</li>
+        <li>Collaborate on real-world projects with a remote development team.</li>
+      </ul>
+    </article>
+    <article class="role-item r3">
+      <h3>Trainer at Sree Sankaracharya Computer Centre, Karmala</h3>
+      <div class="meta">Apr 2026 – Present · On-site</div>
+      <ul>
+        <li>Teach programming and office automation courses: C, C++, Java, PHP, and MySQL.</li>
+        <li>Joined as a Software Development Intern and moved into the Trainer role.</li>
+      </ul>
+    </article>
+    <article class="role-item r1">
+      <h3>Full Stack Developer Intern at Silicon Mount Tech Limited</h3>
+      <div class="meta">Dec 2025 – Jun 2026 · Remote</div>
+      <ul>
+        <li>Worked on React.js and Node.js development tasks.</li>
+        <li>Contributed to MySQL integration and feature development.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="projects" aria-labelledby="proj-h">
+  <h2 id="proj-h">Projects</h2>
+  <div>
+    <div class="proj"><a class="row" href="https://github.com/virajkasabe/real-time-collaborative-document-system" target="_blank" rel="noopener">
+      <div><h3>Real-Time Collaborative Document System</h3><p>A secure, Google Docs-style editor where several people edit the same document live, kept in sync over WebSockets. Redis holds the real-time state and Docker runs the local services.</p></div>
+      <ul class="stack"><li>React</li><li>Node.js</li><li>Socket.IO</li><li>MongoDB</li><li>Redis</li><li>Docker</li></ul>
+    </a></div>
+    <div class="proj"><a class="row" href="https://github.com/virajkasabe/golf-charity-platform" target="_blank" rel="noopener">
+      <div><h3>Golf Charity Platform</h3><p>A full-stack subscription platform for a golf charity initiative, with secure payments and subscription handling through Stripe.</p></div>
+      <ul class="stack"><li>React</li><li>Node.js</li><li>MongoDB</li><li>Stripe</li></ul>
+    </a></div>
+    <div class="proj"><a class="row" href="https://github.com/virajkasabe/AI-powered-quiz-contest-platform" target="_blank" rel="noopener">
+      <div><h3>AI-Powered Quiz Contest Platform</h3><p>Built from scratch. It generates and manages quiz content programmatically, and runs a contest flow with question handling and scoring.</p></div>
+      <ul class="stack"><li>AI-generated quizzes</li><li>Scoring logic</li></ul>
+    </a></div>
+    <div class="proj"><a class="row" href="https://github.com/virajkasabe/Dazeen-ecommerce-" target="_blank" rel="noopener">
+      <div><h3>Dazeen E-Commerce Platform</h3><p>A TypeScript e-commerce web app with a modern frontend architecture, focused on clear component structure and maintainable, type-safe code.</p></div>
+      <ul class="stack"><li>TypeScript</li><li>Components</li></ul>
+    </a></div>
+  </div>
+</section>
+
+<section id="skills" aria-labelledby="skills-h">
+  <h2 id="skills-h">Skills</h2>
+  <dl class="skills">
+    <dt>Languages</dt><dd>Java, JavaScript, SQL</dd>
+    <dt>Frontend</dt><dd>React.js, HTML, CSS</dd>
+    <dt>Backend</dt><dd>Node.js, PHP</dd>
+    <dt>Databases</dt><dd>MySQL, MongoDB</dd>
+    <dt>Tools</dt><dd>Git, GitHub, REST APIs</dd>
+  </dl>
+</section>
+
+<section id="education" aria-labelledby="edu-h">
+  <h2 id="edu-h">Education and achievements</h2>
+  <div class="two">
+    <div>
+      <h3>B.Tech in Computer Science, 2022 – 2026</h3>
+      <p>SKN Sinhagad College of Engineering, Pandharpur</p>
+      <p class="gpa">GPA 9.55</p>
+      <h3 style="margin-top:1.25rem">Higher Secondary, 2020 – 2022</h3>
+      <p>S.G.R.G Shinde College, Paranda · 63%</p>
+    </div>
+    <div>
+      <h3>Beyond the classroom</h3>
+      <p>Secretary, Competitive Exam Club</p>
+      <p>Participated in multiple hackathons</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big">Have a project or a role in mind? Let’s talk.</div>
+  <ul>
+    <li><a href="mailto:kasabeviraj@gmail.com">kasabeviraj@gmail.com</a></li>
+    <li><a href="tel:+919021744186">9021744186</a></li>
+    <li><a href="https://github.com/virajkasabe" target="_blank" rel="noopener">github.com/virajkasabe</a></li>
+    <li><a href="https://linkedin.com/in/viraj-kasabe-59b24624a" target="_blank" rel="noopener">LinkedIn</a></li>
+  </ul>
+</footer>
+
+</main>
+</body>
+</html>
